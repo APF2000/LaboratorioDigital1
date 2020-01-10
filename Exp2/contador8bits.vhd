@@ -74,7 +74,7 @@ end estrutural; --fim da arquitetura estrutural
 --    Os 8 bits do contador são controlados pelos componentes CONT1 (4 bits menos significativos) e
 --    CONT2 (4 bits mais significativos). Como são instâncias do componente contador_163, cada um deles
 --    assume individualmente valores de 0 a F (base hexadecimal). Por tanto, o maior número representável
---    é FF, ou seja, 15*(16^1) + 15*(16^0) = 255
+--    é FF, ou seja, 15*(16^1) + 15*(16^0) = 255.
 
 --2) O contador de 8 bits é composto pelo cascateamento de dois contadores 74163.
 --Qual componente interno da descrição se refere ao dígito hexadecimal mais significativo (CONT1 ou CONT2)?
