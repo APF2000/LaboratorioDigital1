@@ -53,7 +53,7 @@ begin
       then rco <= '1'; -- sinal rco assume valor 1 (usado para cascateamento)
     else -- caso contrário
       rco <= '0'; -- rco = 0
-    end if; --fim da detecção de borda de subida
+    end if; --fim da detecção de "overflow"
 
     Q <= std_logic_vector(to_unsigned(IQ, Q'length)); --saída Q assume o valor do sinal IQ (conversão de tipo e adaptação de comprimento são necessários)
 
@@ -62,15 +62,15 @@ end comportamental; -- fim da declaração da arquitetura comportamental
 
 
 --1) A saída Q deve variar de 0 a 15. Quais linhas de código VHDL confirmam este intervalo de valores?
---       Linha 30 e também as 42 e 43 DESTE código
+--       Linha 30 e também as 42 e 43 DESTE código.
 
 --2) O sinal de CLEAR é síncrono e ativo em baixo. Quais linhas de código VHDL confirmam esta característica?
---       Linhas 36 e 37
+--       Linhas 36 e 37.
 
 --3) Este componente é sensível a borda de subida do sinal de clock.
 --Quais linhas de código VHDL confirmam esta característica?
---       Linha 36
+--       Linha 36.
 
 --4)Os sinais ENT e RCO devem ser usados para cascateamento de contadores.
 --Quais linhas de código VHDL confirmam esta característica?
---       Linhas 52 até 56
+--       Linhas 52 até 56.
