@@ -39,7 +39,7 @@ architecture estrutural of contador8bits is --declaração da arquitetura estrut
     );
 end component; --fim da declaração do componente contador_163
 
-  signal s_rco : std_logic; --sinal (fio) s_rco to dipo std_logic
+  signal s_rco : std_logic; --sinal (fio) s_rco to tipo std_logic
   signal s_Q   : std_logic_vector  (7 downto 0); --sinal (fio) s_Q de 8 bits do tipo std_logic_vector
 
 begin
@@ -73,8 +73,8 @@ end estrutural; --fim da arquitetura estrutural
 --1) A saída Q do contador de 8 bits deve variar de 0 a 255. Como isto pode ser confirmado pelo grupo?
 --    Os 8 bits do contador são controlados pelos componentes CONT1 (4 bits menos significativos) e
 --    CONT2 (4 bits mais significativos). Como são instâncias do componente contador_163, cada um deles
---    assume individualmente valores de 0 a F (base hexadecimal). Por tanto, o maior número é FF, ou seja,
---    15.(16^1) + 15.(16^0) = 255
+--    assume individualmente valores de 0 a F (base hexadecimal). Por tanto, o maior número representável
+--    é FF, ou seja, 15*(16^1) + 15*(16^0) = 255
 
 --2) O contador de 8 bits é composto pelo cascateamento de dois contadores 74163.
 --Qual componente interno da descrição se refere ao dígito hexadecimal mais significativo (CONT1 ou CONT2)?
