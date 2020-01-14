@@ -44,26 +44,28 @@ end component; --fim da declaração do componente contador_163
 
 begin
   --CONT1 é uma instância do componente contador_163
-  CONT1: contador_163 port map ( clock=>clock, --conecta a entrada clock do componente CONT1 (contador_163) à entrada clock da entidade (contador8bits)
-                                 clr=>zera, --conecta a entrada clr do componente à entrada zera da entidade
-                                 ld=>'1', --liga o sinal lógico '1' à entrada ld do componente
-                                 ent=>'1', --liga o sinal lógico '1' à entrada ent do componente menos significativo
-                                 enp=>conta, --conecta a entrada enp do componente à entrada conta da entidade
-                                 D=>"1111", --liga o sinal "1111" (4 bits) à entrada D (4 bits) do componente CONT1
-                                 Q=>s_Q(3 downto 0), --conecta a saída Q (4 bits) do componente ao sinal s_Q (4 bits menos significativos)
-                                 rco=>s_rco --conecta a saída rco do componente menos significativo ao sinal s_rco
-                               ); --fim da declaração do componente
+CONT1: contador_163 port map ( clock=>clock, --conecta a entrada clock do componente CONT1 (contador_163) à entrada
+                                             --clock da entidade (contador8bits)
+         clr=>zera, --conecta a entrada clr do componente à entrada zera da entidade
+         ld=>'1', --liga o sinal lógico '1' à entrada ld do componente
+         ent=>'1', --liga o sinal lógico '1' à entrada ent do componente menos significativo
+         enp=>conta, --conecta a entrada enp do componente à entrada conta da entidade
+         D=>"1111", --liga o sinal "1111" (4 bits) à entrada D (4 bits) do componente CONT1
+         Q=>s_Q(3 downto 0), --conecta a saída Q (4 bits) do componente ao sinal s_Q (4 bits menos significativos)
+         rco=>s_rco --conecta a saída rco do componente menos significativo ao sinal s_rco
+       ); --fim da declaração do componente
 
-  --CONT2 é uma OUTRA instância do componente contador_163
-  CONT2: contador_163 port map ( clock=>clock, --conecta a entrada clock do componente CONT2 (contador_163) à entrada clock da entidade (contador8bits)
-                                 clr=>zera, --conecta a entrada clr do componente à entrada zera da entidade
-                                 ld=>'1', --liga o sinal lógico '1' à entrada ld do componente
-                                 ent=>s_rco, --liga o sinal s_rco à entrada ent do componente mais significativo
-                                 enp=>conta, --conecta a entrada enp do componente à entrada conta da entidade
-                                 D=>"1111", --liga o sinal "1111" (4 bits) à entrada D (4 bits) do componente CONT2
-                                 Q=>s_Q(7 downto 4), --contecta a saída Q (4 bits) do componente ao sinal s_Q (4 bits mais significativos)
-                                 rco=>rco --conecta a saída rco do componente mais significativo à saída rco da arquitetura
-                               );
+--CONT2 é uma OUTRA instância do componente contador_163
+CONT2: contador_163 port map ( clock=>clock, --conecta a entrada clock do componente CONT2 (contador_163) à entrada
+                                             --clock da entidade (contador8bits)
+         clr=>zera, --conecta a entrada clr do componente à entrada zera da entidade
+         ld=>'1', --liga o sinal lógico '1' à entrada ld do componente
+         ent=>s_rco, --liga o sinal s_rco à entrada ent do componente mais significativo
+         enp=>conta, --conecta a entrada enp do componente à entrada conta da entidade
+         D=>"1111", --liga o sinal "1111" (4 bits) à entrada D (4 bits) do componente CONT2
+         Q=>s_Q(7 downto 4), --contecta a saída Q (4 bits) do componente ao sinal s_Q (4 bits mais significativos)
+         rco=>rco --conecta a saída rco do componente mais significativo à saída rco da arquitetura
+       );
 
   Q <= s_Q; --saída Q da entidade recebe o sinal s_Q de 8 bits
 
@@ -78,7 +80,8 @@ end estrutural; --fim da arquitetura estrutural
 
 --2) O contador de 8 bits é composto pelo cascateamento de dois contadores 74163.
 --Qual componente interno da descrição se refere ao dígito hexadecimal mais significativo (CONT1 ou CONT2)?
---     De acordo com a descrição, e como já mencionado antes, CONT2 é responsável pelo dígito hexadecimal mais significativo.
+--     De acordo com a descrição, e como já mencionado antes,
+--     CONT2 é responsável pelo dígito hexadecimal mais significativo.
 
 --3) Os sinais ENT e RCO são usados para cascateamento dos contadores. Quais linhas de código VHDL estrutural
 --mostram esta ligação de sinais? Quais sinais internos VHDL são usados neste cascateamento?

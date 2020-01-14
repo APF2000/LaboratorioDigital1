@@ -30,7 +30,8 @@ architecture comportamental of contador_163 is -- início da declaração da arq
   signal IQ: integer range 0 to 15; -- sinal (fio) do tipo integer assumindo valores de  0 a 15
 begin
 
-  process (clock,clr,ld,ent,enp,IQ) -- processo (sequencial) e lista de sensibilidade (se um desses sinais mudar o processo é ativado)
+  process (clock,clr,ld,ent,enp,IQ) -- processo (sequencial) e lista de sensibilidade
+                                    --(se um desses sinais mudar o processo é ativado)
   begin
 
     if clock'event and clock='1' then -- se for detectada uma borda de subida, então
@@ -55,7 +56,9 @@ begin
       rco <= '0'; -- rco = 0
     end if; --fim da detecção de "overflow"
 
-    Q <= std_logic_vector(to_unsigned(IQ, Q'length)); --saída Q assume o valor do sinal IQ (conversão de tipo e adaptação de comprimento são necessários)
+    Q <= std_logic_vector(to_unsigned(IQ, Q'length)); --saída Q assume o valor do sinal IQ
+                                                      --(conversão de tipo e adaptação de comprimento
+                                                      --são necessários)
 
   end process; --fim do processo
 end comportamental; -- fim da declaração da arquitetura comportamental
