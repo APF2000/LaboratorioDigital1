@@ -1,0 +1,10 @@
+v 4
+file . "contador_163.vhd" "224efaa0868126f39997887f2d2ab5101bc2391b" "20200115004037.656":
+  entity contador_163 at 14( 585) + 0 on 15;
+  architecture comportamental of contador_163 at 29( 1390) + 0 on 16;
+file . "contador8bits.vhd" "e66c216bc3bff11e0f52cab5f3ee15aa2335c75e" "20200115003559.347":
+  entity contador8bits at 15( 634) + 0 on 11;
+  architecture estrutural of contador8bits at 31( 1299) + 0 on 12;
+file . "exp2_desafio.vhd" "64aa1eb270bd3a748c90f3edafa31ee9a6d7c7b6" "20200115004008.612":
+  entity exp2_desafio at 19( 789) + 0 on 13;
+  architecture arch of exp2_desafio at 36( 1256) + 0 on 14;

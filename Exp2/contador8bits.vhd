@@ -22,7 +22,9 @@ entity contador8bits is --declaração da entidade contador8bits (imagine uma "c
         zera  : in  std_logic; --entrada zera do tipo std_logic
         conta : in  std_logic; --entrada conta do tipo std_logic
         Q     : out std_logic_vector (7 downto 0); --saída Q de 8 bits do tipo std_logic_vector
-        rco   : out std_logic -- saída rco do tipo std_logic
+        rco   : out std_logic; -- saída rco do tipo std_logic
+
+        init : in std_logic_vector(7 downto 0)
    );
 end contador8bits; --fim da declaração da entidade contador8bits
 
@@ -41,33 +43,37 @@ end component; --fim da declaração do componente contador_163
 
   signal s_rco : std_logic; --sinal (fio) s_rco to tipo std_logic
   signal s_Q   : std_logic_vector  (7 downto 0); --sinal (fio) s_Q de 8 bits do tipo std_logic_vector
+  signal initialValue : std_logic_vector(7 downto 0);
 
-begin
-  --CONT1 é uma instância do componente contador_163
-CONT1: contador_163 port map ( clock=>clock, --conecta a entrada clock do componente CONT1 (contador_163) à entrada
-                                             --clock da entidade (contador8bits)
-         clr=>zera, --conecta a entrada clr do componente à entrada zera da entidade
-         ld=>'1', --liga o sinal lógico '1' à entrada ld do componente
-         ent=>'1', --liga o sinal lógico '1' à entrada ent do componente menos significativo
-         enp=>conta, --conecta a entrada enp do componente à entrada conta da entidade
-         D=>"1111", --liga o sinal "1111" (4 bits) à entrada D (4 bits) do componente CONT1
-         Q=>s_Q(3 downto 0), --conecta a saída Q (4 bits) do componente ao sinal s_Q (4 bits menos significativos)
-         rco=>s_rco --conecta a saída rco do componente menos significativo ao sinal s_rco
-       ); --fim da declaração do componente
+  begin
 
---CONT2 é uma OUTRA instância do componente contador_163
-CONT2: contador_163 port map ( clock=>clock, --conecta a entrada clock do componente CONT2 (contador_163) à entrada
-                                             --clock da entidade (contador8bits)
-         clr=>zera, --conecta a entrada clr do componente à entrada zera da entidade
-         ld=>'1', --liga o sinal lógico '1' à entrada ld do componente
-         ent=>s_rco, --liga o sinal s_rco à entrada ent do componente mais significativo
-         enp=>conta, --conecta a entrada enp do componente à entrada conta da entidade
-         D=>"1111", --liga o sinal "1111" (4 bits) à entrada D (4 bits) do componente CONT2
-         Q=>s_Q(7 downto 4), --contecta a saída Q (4 bits) do componente ao sinal s_Q (4 bits mais significativos)
-         rco=>rco --conecta a saída rco do componente mais significativo à saída rco da arquitetura
-       );
+  initialValue <= init;
 
-  Q <= s_Q; --saída Q da entidade recebe o sinal s_Q de 8 bits
+    --CONT1 é uma instância do componente contador_163
+  CONT1: contador_163 port map ( clock=>clock, --conecta a entrada clock do componente CONT1 (contador_163) à entrada
+                                               --clock da entidade (contador8bits)
+           clr=>zera, --conecta a entrada clr do componente à entrada zera da entidade
+           ld=>'1', --liga o sinal lógico '1' à entrada ld do componente
+           ent=>'1', --liga o sinal lógico '1' à entrada ent do componente menos significativo
+           enp=>conta, --conecta a entrada enp do componente à entrada conta da entidade
+           D=>initialValue(3 downto 0), --liga o sinal "1111" (4 bits) à entrada D (4 bits) do componente CONT1
+           Q=>s_Q(3 downto 0), --conecta a saída Q (4 bits) do componente ao sinal s_Q (4 bits menos significativos)
+           rco=>s_rco --conecta a saída rco do componente menos significativo ao sinal s_rco
+         ); --fim da declaração do componente
+
+  --CONT2 é uma OUTRA instância do componente contador_163
+  CONT2: contador_163 port map ( clock=>clock, --conecta a entrada clock do componente CONT2 (contador_163) à entrada
+                                               --clock da entidade (contador8bits)
+           clr=>zera, --conecta a entrada clr do componente à entrada zera da entidade
+           ld=>'1', --liga o sinal lógico '1' à entrada ld do componente
+           ent=>s_rco, --liga o sinal s_rco à entrada ent do componente mais significativo
+           enp=>conta, --conecta a entrada enp do componente à entrada conta da entidade
+           D=>initialValue(7 downto 4), --liga o sinal "1111" (4 bits) à entrada D (4 bits) do componente CONT2
+           Q=>s_Q(7 downto 4), --contecta a saída Q (4 bits) do componente ao sinal s_Q (4 bits mais significativos)
+           rco=>rco --conecta a saída rco do componente mais significativo à saída rco da arquitetura
+         );
+
+    Q <= s_Q; --saída Q da entidade recebe o sinal s_Q de 8 bits
 
 end estrutural; --fim da arquitetura estrutural
 
