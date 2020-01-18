@@ -1,4 +1,0 @@
-v 4
-file . "controlador.vhd" "506c081dfc6c1d36f8144628bab179a23daf819e" "20200118141346.861":
-  entity controlador at 21( 928) + 0 on 11;
-  architecture controlador_arch of controlador at 33( 1283) + 0 on 12;
