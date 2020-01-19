@@ -1,0 +1,8 @@
+
+State Machine - |medidor_largura|controlador:UC|Ereg
+Name Ereg.FIM Ereg.ESPERA Ereg.CONTA Ereg.LIGADO Ereg.INICIAL 
+Ereg.INICIAL 0 0 0 0 0 
+Ereg.LIGADO 0 0 0 1 1 
+Ereg.CONTA 0 0 1 0 1 
+Ereg.ESPERA 0 1 0 0 1 
+Ereg.FIM 1 0 0 0 1 
