@@ -1,0 +1,7 @@
+{
+	"common_dir" : "C:/intelFPGA_lite/Projetos/LabDig/2020/exp2/",
+	"acds_version" : "Version 18.0.0",
+	"platform" : "windows",
+	"os" : "Windows 10",
+	"qpf" : "contador8bits.qpf"
+}

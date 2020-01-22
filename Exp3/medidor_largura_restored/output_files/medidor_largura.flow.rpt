@@ -1,5 +1,5 @@
 Flow report for medidor_largura
-Sun Jan 19 10:29:18 2020
+Mon Jan 20 13:56:00 2020
 Quartus Prime Version 16.1.0 Build 196 10/24/2016 SJ Lite Edition
 
 
@@ -41,7 +41,7 @@ agreement for further details.
 +-------------------------------------------------------------------------------+
 ; Flow Summary                                                                  ;
 +---------------------------------+---------------------------------------------+
-; Flow Status                     ; Successful - Sun Jan 19 10:29:18 2020       ;
+; Flow Status                     ; Successful - Mon Jan 20 13:56:00 2020       ;
 ; Quartus Prime Version           ; 16.1.0 Build 196 10/24/2016 SJ Lite Edition ;
 ; Revision Name                   ; medidor_largura                             ;
 ; Top-level Entity Name           ; medidor_largura                             ;
@@ -68,7 +68,7 @@ agreement for further details.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 01/19/2020 10:28:08 ;
+; Start date & time ; 01/20/2020 13:55:00 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; medidor_largura     ;
 +-------------------+---------------------+
@@ -79,7 +79,7 @@ agreement for further details.
 +-------------------------------------+----------------------------------------+---------------+-------------+----------------+
 ; Assignment Name                     ; Value                                  ; Default Value ; Entity Name ; Section Id     ;
 +-------------------------------------+----------------------------------------+---------------+-------------+----------------+
-; COMPILER_SIGNATURE_ID               ; 39627051969761.157944048807068         ; --            ; --          ; --             ;
+; COMPILER_SIGNATURE_ID               ; 39627051969761.157953930004654         ; --            ; --          ; --             ;
 ; EDA_OUTPUT_DATA_FORMAT              ; Verilog Hdl                            ; --            ; --          ; eda_simulation ;
 ; EDA_SIMULATION_TOOL                 ; ModelSim-Altera (Verilog)              ; <None>        ; --          ; --             ;
 ; EDA_TIME_SCALE                      ; 1 ps                                   ; --            ; --          ; eda_simulation ;
@@ -97,12 +97,12 @@ agreement for further details.
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name               ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis      ; 00:00:17     ; 1.0                     ; 1026 MB             ; 00:00:36                           ;
-; Fitter                    ; 00:00:37     ; 1.0                     ; 1787 MB             ; 00:00:42                           ;
-; Assembler                 ; 00:00:04     ; 1.0                     ; 961 MB              ; 00:00:04                           ;
+; Analysis & Synthesis      ; 00:00:16     ; 1.0                     ; 1026 MB             ; 00:00:36                           ;
+; Fitter                    ; 00:00:27     ; 1.0                     ; 1785 MB             ; 00:00:38                           ;
+; Assembler                 ; 00:00:04     ; 1.0                     ; 960 MB              ; 00:00:04                           ;
 ; TimeQuest Timing Analyzer ; 00:00:06     ; 1.0                     ; 1111 MB             ; 00:00:06                           ;
 ; EDA Netlist Writer        ; 00:00:01     ; 1.0                     ; 1142 MB             ; 00:00:01                           ;
-; Total                     ; 00:01:05     ; --                      ; --                  ; 00:01:29                           ;
+; Total                     ; 00:00:54     ; --                      ; --                  ; 00:01:25                           ;
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 
