@@ -63,6 +63,8 @@ architecture comportamento of medidor_largura is
    signal clk, s_zeraCont, s_contaCont, notZeraCont : std_logic;
    signal hex5 : std_logic_vector(3 downto 0);
    signal s_Q: std_logic_vector(7 downto 0);
+	signal reg0, reg1 : std_logic_vector(6 downto 0);
+	signal fimAux, prontoAux : std_logic;
 
 
 begin                       --componente => entidade
@@ -72,7 +74,7 @@ begin                       --componente => entidade
                                     sinal => sinal,
                                     zeraCont => s_zeraCont,
                                     contaCont => s_contaCont,
-                                    pronto => pronto,
+                                    pronto => prontoAux,
                                     estado => hex5
                            );
 
@@ -81,18 +83,18 @@ begin                       --componente => entidade
                                     zera => notZeraCont,
                                     conta => s_contaCont,
                                     Q => s_Q,
-                                    rco => fim
+                                    rco => fimAux
                               );
 
 
                            --componente => entidade
    disp0: hexa7seg port map (       hexa => s_Q(3 downto 0),
-                                    sseg => display0
+                                    sseg => reg0
                             );
 
                             --componente => entidade
    disp1: hexa7seg port map (       hexa => s_Q(7 downto 4),
-                                     sseg => display1
+                                     sseg => reg1
                              );
 
                            --componente => entidade
@@ -100,7 +102,19 @@ begin                       --componente => entidade
                                     sseg => display5
                             );
 
-   notZeraCont <= not(s_zeraCont);
+   
+	with prontoAux select
+		display0 <= reg0 when '1',
+						B"1111_111" when '0';
+								 
+	with prontoAux select
+		display1 <= reg1 when '1',
+						B"1111_111" when '0';
+						
+	fim <= fimAux;
+	pronto <= prontoAux;
+	
+	notZeraCont <= not(s_zeraCont);
    db_largura <= s_Q;
    db_clock <= clock;
    db_zeraCont <= s_zeraCont;

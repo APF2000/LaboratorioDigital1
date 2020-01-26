@@ -1,0 +1,7 @@
+v 4
+file . "Exp3/controlador.vhd" "c08f4ddaa9d2441c9fc5761686bd490da87a51b3" "20200126195715.738":
+  entity controlador at 21( 926) + 0 on 15;
+  architecture controlador_arch of controlador at 33( 1281) + 0 on 16;
+file . "Exp4/interface_leds_botoes.vhd" "7c50fb1bd02fb98e2ad88152c906392fd0500317" "20200126133018.563":
+  entity interface_leds_botoes at 1( 0) + 0 on 13;
+  architecture arc of interface_leds_botoes at 15( 316) + 0 on 14;

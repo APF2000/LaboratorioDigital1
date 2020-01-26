@@ -1,6 +1,6 @@
 Restore Archived Project report for medidor_largura
-Tue Jan 21 20:15:55 2020
-Quartus Prime Version 16.1.0 Build 196 10/24/2016 SJ Standard Edition
+Sun Jan 26 14:28:11 2020
+Quartus Prime Version 16.1.0 Build 196 10/24/2016 SJ Lite Edition
 
 
 ---------------------
@@ -37,7 +37,7 @@ agreement for further details.
 +-------------------------------------------------------------------------+
 ; Restore Archived Project Summary                                        ;
 +---------------------------------+---------------------------------------+
-; Restore Archived Project Status ; Successful - Tue Jan 21 20:15:55 2020 ;
+; Restore Archived Project Status ; Successful - Sun Jan 26 14:28:11 2020 ;
 ; Revision Name                   ; medidor_largura                       ;
 ; Top-level Entity Name           ; medidor_largura                       ;
 ; Family                          ; Cyclone V                             ;
@@ -47,15 +47,13 @@ agreement for further details.
 +-----------------------------------+
 ; Restore Archived Project Messages ;
 +-----------------------------------+
-Warning (13177): Your design targets the device family "Cyclone V". The specified family is not a valid device family, is not installed, or is not supported in this version of the Quartus Prime software. If you restored a project from an archived version, your project was successfully restored, but you still must specify or install a supported device family.
-Info (13198): Your project was successfully restored, but the device information in the Flow Summary report cannot be updated until the design targets a supported device family.
 Info: Successfully restored '/home/arthur/Documentos/Quadri/LaboratorioDigital1/Exp3/medidor_largura.qar' into the '/home/arthur/Documentos/Quadri/LaboratorioDigital1/Exp3/medidor_largura_restored/' directory
 Info: Generated report 'medidor_largura.restore.rpt'
-Info (23030): Evaluation of Tcl script /home/arthur/intelFPGA_lite/16.1/quartus/common/tcl/apps/qpm/qar.tcl was successful
-Info: Quartus Prime Shell was successful. 0 errors, 13 warnings
-    Info: Peak virtual memory: 1062 megabytes
-    Info: Processing ended: Tue Jan 21 20:15:55 2020
-    Info: Elapsed time: 00:00:01
+Info (23030): Evaluation of Tcl script /opt/intelFPGA_lite/quartus/common/tcl/apps/qpm/qar.tcl was successful
+Info: Quartus Prime Shell was successful. 0 errors, 0 warnings
+    Info: Peak virtual memory: 1060 megabytes
+    Info: Processing ended: Sun Jan 26 14:28:11 2020
+    Info: Elapsed time: 00:00:02
     Info: Total CPU time (on all processors): 00:00:01
 
 
@@ -64,19 +62,8 @@ Info: Quartus Prime Shell was successful. 0 errors, 13 warnings
 +-------------------------+
 ; File Name               ;
 +-------------------------+
-; Chain9.cdf              ;
-; output_files/Chain6.cdf ;
-; output_files/Chain7.cdf ;
-; output_files/Chain8.cdf ;
-+-------------------------+
-
-
-+-------------------------+
-; Files Not Restored      ;
-+-------------------------+
-; File Name               ;
-+-------------------------+
 ; qar_info.json           ;
+; Chain9.cdf              ;
 ; Waveform.vwf            ;
 ; assignment_defaults.qdf ;
 ; contador8bits.vhd       ;
@@ -86,6 +73,16 @@ Info: Quartus Prime Shell was successful. 0 errors, 13 warnings
 ; medidor_largura.qpf     ;
 ; medidor_largura.qsf     ;
 ; medidor_largura.vhd     ;
+; output_files/Chain6.cdf ;
+; output_files/Chain7.cdf ;
+; output_files/Chain8.cdf ;
 +-------------------------+
+
+
++--------------------+
+; Files Not Restored ;
++--------------------+
+; File Name          ;
++--------------------+
 
 

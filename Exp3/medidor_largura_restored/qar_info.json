@@ -1,7 +1,7 @@
 {
-	"common_dir" : "/home/lucas/Documents/POLI/Quadrimestral/Laboratorio Digital/LabDig1/exp3/QARexp3/",
+	"common_dir" : "C:/Users/mypc/Downloads/medidor_largura_restored/",
 	"acds_version" : "Version 16.1.0",
-	"platform" : "linux",
-	"os" : "Ubuntu 18.04.3",
+	"platform" : "windows",
+	"os" : "Windows 10",
 	"qpf" : "medidor_largura.qpf"
 }
