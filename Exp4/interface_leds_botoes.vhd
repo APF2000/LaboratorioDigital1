@@ -1,4 +1,4 @@
-library ieee;
+[11:03, 27/01/2020] Arthur: library ieee;
 use IEEE.std_logic_1164.all;
 use IEEE.numeric_std.all;
 use IEEE.math_real.all;
@@ -8,7 +8,39 @@ entity interface_leds_botoes is
      clock, reset: in std_logic;
      iniciar, resposta: in std_logic;
      ligado, estimulo, pulso: out std_logic;
-     erro, pronto: out std_logic
+     erro, pronto: out std_logic;
+	 estado : out std_logic_vector(3 downto 0);
+	 contador : out std_logic_vector(3 downto 0)
+ );
+end interface_leds_botoes;
+
+architecture arc of interface_leds_botoes is
+  component latch_sr is
+      port ( s, r: in  std_logic;
+             q:    out std_logic
+           );
+  end component;
+
+  component contador_modm is
+      generic (
+          constant M: integer := 10 -- valor default do modulo do contador
+      );
+     port (
+          clock, zera, conta: in std_logic;
+       …
+[11:33, 27/01/2020] Arthur: library ieee;
+use IEEE.std_logic_1164.all;
+use IEEE.numeric_std.all;
+use IEEE.math_real.all;
+
+entity interface_leds_botoes is
+  port (
+     clock, reset: in std_logic;
+     iniciar, resposta: in std_logic;
+     ligado, estimulo, pulso: out std_logic;
+     erro, pronto: out std_logic;
+	 estado : out std_logic_vector(3 downto 0);
+	 contador : out std_logic_vector(3 downto 0)
  );
 end interface_leds_botoes;
 
@@ -32,15 +64,15 @@ architecture arc of interface_leds_botoes is
 
   constant M: integer := 10;
 
-  signal conta, reagir : std_logic;
-  signal valorCont, valorContAux : std_logic_vector(3 downto 0);
+  signal conta, respostaAux, estimuloAux, erroAux : std_logic;
+  signal valorCont : std_logic_vector(3 downto 0);
 
   type tipo_Estado is (DESLIGADO, ATRASO, REACAO, REJEICAO, FIM);
   signal Ereg, Eprox: tipo_Estado;
 
 begin
 
-  nextState : process(clock, reset)
+  nextState : process(Ereg, iniciar, valorCont, resposta)
   begin
     case Ereg is
        when DESLIGADO =>  if iniciar = '1' then   Eprox <= ATRASO;
@@ -75,13 +107,13 @@ begin
 
     if reset = '1' then
       ligado <= '0';
+      Ereg <= DESLIGADO;
     elsif clock'event and clock = '1' then
       if iniciar = '1' then
         ligado <= '1';
       end if;
+		Ereg <= Eprox;
     end if;
-
-    Ereg <= Eprox;
   end process main;
 
 
@@ -89,23 +121,39 @@ begin
     clock => clock,
     zera => reset,
     conta => conta,
-    Q => valorContAux,
-    fim => reagir
+    Q => valorCont,
+    fim => open
+  );
+
+  latch : latch_sr port map (
+		s => resposta,
+		r => not resposta,
+		q => respostaAux
   );
 
   with Ereg select
-     erro <= '1' when REJEICAO,
+     erroAux <= '1' when REJEICAO,
              '0' when others;
   with Ereg select
-     estimulo  <= '1' when REACAO,
+     estimuloAux  <= '1' when REACAO,
                   '0' when others;
-  with Ereg select
-     pulso    <= '1' when REACAO,
-                 '0' when others;
   with Ereg select
      pronto <= '1' when FIM | REJEICAO,
                '0' when others;
   with Ereg select
      conta <= '1' when ATRASO,
               '0' when others;
+
+  with Ereg select
+	estado <= "0000" when DESLIGADO,
+			"0001" when ATRASO,
+			"0010" when REACAO,
+			"0011" when FIM,
+			"0100" when REJEICAO,
+			"1111" when others;
+
+	erro <= erroAux;
+	contador <= valorCont;
+	estimulo <= estimuloAux;
+	pulso <= estimuloAux and (not respostaAux);
 end arc;

@@ -1,0 +1,4 @@
+v 4
+file . "interface_leds_botoes.vhd" "94f356eb4491899ec3a8137896bd4a509715b230" "20200127124247.706":
+  entity interface_leds_botoes at 1( 0) + 0 on 11;
+  architecture arc of interface_leds_botoes at 15( 316) + 0 on 12;
