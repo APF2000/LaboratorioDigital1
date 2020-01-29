@@ -1,34 +1,4 @@
-[11:03, 27/01/2020] Arthur: library ieee;
-use IEEE.std_logic_1164.all;
-use IEEE.numeric_std.all;
-use IEEE.math_real.all;
-
-entity interface_leds_botoes is
-  port (
-     clock, reset: in std_logic;
-     iniciar, resposta: in std_logic;
-     ligado, estimulo, pulso: out std_logic;
-     erro, pronto: out std_logic;
-	 estado : out std_logic_vector(3 downto 0);
-	 contador : out std_logic_vector(3 downto 0)
- );
-end interface_leds_botoes;
-
-architecture arc of interface_leds_botoes is
-  component latch_sr is
-      port ( s, r: in  std_logic;
-             q:    out std_logic
-           );
-  end component;
-
-  component contador_modm is
-      generic (
-          constant M: integer := 10 -- valor default do modulo do contador
-      );
-     port (
-          clock, zera, conta: in std_logic;
-       …
-[11:33, 27/01/2020] Arthur: library ieee;
+library ieee;
 use IEEE.std_logic_1164.all;
 use IEEE.numeric_std.all;
 use IEEE.math_real.all;
@@ -66,6 +36,7 @@ architecture arc of interface_leds_botoes is
 
   signal conta, respostaAux, estimuloAux, erroAux : std_logic;
   signal valorCont : std_logic_vector(3 downto 0);
+  signal notResposta : std_logic;
 
   type tipo_Estado is (DESLIGADO, ATRASO, REACAO, REJEICAO, FIM);
   signal Ereg, Eprox: tipo_Estado;
@@ -125,9 +96,11 @@ begin
     fim => open
   );
 
+  notResposta <= not resposta;
+
   latch : latch_sr port map (
 		s => resposta,
-		r => not resposta,
+		r => notResposta,
 		q => respostaAux
   );
 
