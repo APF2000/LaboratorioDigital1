@@ -78,7 +78,7 @@ begin
 
     if reset = '1' then
       ligado <= '0';
-      Ereg <= DESLIGADO;
+      Ereg <= DESLIGADO; --reset assíncrono
     elsif clock'event and clock = '1' then
       if iniciar = '1' then
         ligado <= '1';
