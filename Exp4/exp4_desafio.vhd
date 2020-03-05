@@ -73,7 +73,7 @@ architecture arc of exp4_desafio is
      contador => contador
    );
 
-   size : medidor_largura port map (
+   width : medidor_largura port map (
      clock => clock,
      reset => reset,
      liga => ligaAux,

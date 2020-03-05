@@ -5,3 +5,6 @@ file . "Exp3/controlador.vhd" "c08f4ddaa9d2441c9fc5761686bd490da87a51b3" "202001
 file . "Exp4/interface_leds_botoes.vhd" "7c50fb1bd02fb98e2ad88152c906392fd0500317" "20200126133018.563":
   entity interface_leds_botoes at 1( 0) + 0 on 13;
   architecture arc of interface_leds_botoes at 15( 316) + 0 on 14;
+file . "Exp4/exp4_desafio.vhd" "81efa8845272cb70a570f991ce8d83c30038777f" "20200129024338.672":
+  entity exp4_desafio at 1( 0) + 0 on 19;
+  architecture arc of exp4_desafio at 28( 861) + 0 on 20;
